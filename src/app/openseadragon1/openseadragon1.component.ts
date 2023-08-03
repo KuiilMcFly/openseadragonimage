@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgZone } from '@angular/core';
+import * as OpenSeadragon from 'openseadragon';
 @Component({
   selector: 'app-openseadragon1',
   templateUrl: './openseadragon1.component.html',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Openseadragon1Component implements OnInit {
 
-  constructor() { }
+  viewer = this.ngZone.runOutsideAngular(() =>
+  OpenSeadragon(Option)
+);
+  constructor(private ngZone: NgZone) { }
 
   ngOnInit() {
   }
